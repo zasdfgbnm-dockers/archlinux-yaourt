@@ -3,6 +3,7 @@ USER root
 RUN echo 'ALL ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
 COPY remove-pkg-cache.hook /etc/pacman.d/hooks/
+RUN pacman -S --noconfirm pacman-contrib
 RUN curl -s "https://www.archlinux.org/mirrorlist/?country=CN&country=US&protocol=https&use_mirror_status=on" | sed -e 's/^#Server/Server/' -e '/^#/d' | rankmirrors -n 5 - > /etc/pacman.d/mirrorlist
 
 USER user
