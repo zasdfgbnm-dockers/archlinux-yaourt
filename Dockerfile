@@ -8,6 +8,6 @@ RUN cat custom_repo.conf >> /etc/pacman.conf
 RUN pacman -Sy --noconfirm sudo yaourt
 
 RUN echo '%wheel ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
-RUN useradd user; usermod -a -G wheel user
+RUN useradd -m user; usermod -a -G wheel user
 
 USER user
