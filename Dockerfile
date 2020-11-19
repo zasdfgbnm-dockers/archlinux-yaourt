@@ -11,6 +11,7 @@ RUN pacman-key --init
 RUN pacman-key --populate archlinux
 RUN pacman -Sy --noconfirm archlinux-keyring archlinuxcn-keyring
 
+RUN pacman -Syu --noconfirm
 RUN pacman -Sy --noconfirm sudo yaourt
 
 RUN echo '%wheel ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
