@@ -1,5 +1,6 @@
-FROM archlinux
+FROM archlinux:base-devel
 USER root
+RUN ls /usr/lib/sysusers.d/*.conf | /usr/share/libalpm/scripts/systemd-hook sysusers
 
 COPY remove-pkg-cache.hook /etc/pacman.d/hooks/
 
