@@ -1,5 +1,4 @@
 FROM archlinux:base-devel
-USER root
 RUN pacman-key --init
 RUN ls /usr/lib/sysusers.d/*.conf | /usr/share/libalpm/scripts/systemd-hook sysusers
 
