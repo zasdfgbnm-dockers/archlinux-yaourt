@@ -5,10 +5,10 @@ RUN ls /usr/lib/sysusers.d/*.conf | /usr/share/libalpm/scripts/systemd-hook sysu
 COPY remove-pkg-cache.hook /etc/pacman.d/hooks/
 
 COPY custom_repo.conf /
-RUN cat custom_repo.conf >> /etc/pacman.conf
+RUN cat /custom_repo.conf >> /etc/pacman.conf
 
 RUN rm -rf /etc/pacman.d/gnupg
-RUN pacman-key --init
+RUN strace pacman-key --init
 RUN pacman-key --populate archlinux
 RUN pacman -Sy --noconfirm archlinux-keyring archlinuxcn-keyring
 
