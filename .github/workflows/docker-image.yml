@@ -16,7 +16,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build --pull --no-cache . --tag zasdfgbnm/archlinux-yaourt
+      run: sudo docker build --pull --no-cache . --tag zasdfgbnm/archlinux-yaourt
     - name: Publish the Docker image
       run: |
         docker login -u zasdfgbnm -p ${{secrets.zasdfgbnm_bot_dockerhub_password}}
