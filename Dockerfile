@@ -4,6 +4,7 @@ RUN pacman-key --init
 RUN ls /usr/lib/sysusers.d/*.conf | /usr/share/libalpm/scripts/systemd-hook sysusers
 
 COPY remove-pkg-cache.hook /etc/pacman.d/hooks/
+COPY mirrorlist /etc/pacman.d/
 
 COPY custom_repo.conf /
 RUN cat /custom_repo.conf >> /etc/pacman.conf
